@@ -301,6 +301,8 @@
 		else { $groups ="1"; } // 1 ist die Standardgruppe
 	if (isset ( $_POST['login'] )) { $login = $_POST['login']; }
 		else { $login ="1"; } // 1 ist der Standard -> Login erlaubt
+	if (isset ( $_POST['counterstart'] )) { $counterstart = $_POST['counterstart']; }
+		else { $counterstart =0; } // 1 ist der Standard
 ?>
 
 <form action="<?php $_SERVER["SCRIPT_NAME"]; ?>" method="post">
@@ -322,6 +324,9 @@
 		</div>
 		<button class="accordion small" type="button">Erweitert</button>
 		<div class="panel field">
+			<label for="groups" title="Wo soll der Zähler starten?">Counter Start<sup>*</sup>:
+				<input id="counterstart" name="counterstart" value="<?php echo $counterstart; ?>">
+			</label>
 			<label for="groups" title="Gruppenzugehörigkeit, Kommagetrennt">Gruppe(n)<sup>*</sup>:
 				<input id="groups" name="groups" value="<?php echo $groups; ?>">
 			</label>
@@ -366,14 +371,15 @@
 	   			}
 	   			return $str;
 			}
+		
 			//echo zufallsstring(6); //G3pgIA
 			for($i=1; $i<=$usercount; $i++){ // Anzahl der generierten User -> 200			
 				// Mit führenden Nullen ausgeben: http://www.tutorials.de/php/177127-ganzzahlen-mit-fuehrende-nullen-ausgeben.html
 				//echo zufallsstring(8) ."<br>\n";
 				echo "<tr>"
-						."<td class=\"user\">".$userprefix."_".sprintf ("%03d", $i)."</td>"								// Username
+						."<td class=\"user\">".$userprefix."_".sprintf ("%03d", $i+$counterstart)."</td>"								// Username
 						."<td class=\"psswd\">".zufallsstring($pwlength)."</td>"										// Passwortlänge festlegen
-						."<td class=\"email responsive\">".$userprefix."_".sprintf ("%03d", $i)."@example.com"."</td>"	// Email Adresse
+						."<td class=\"email responsive\">".$userprefix."_".sprintf ("%03d", $i+$counterstart)."@example.com"."</td>"	// Email Adresse
 						."<td class=\"groups responsive\">$groups</td>"													// Gruppe
 						."<td class=\"login responsive\">$login</td>"													// Login erlauben (1)
 					."</tr>";
