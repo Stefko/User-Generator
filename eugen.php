@@ -362,7 +362,7 @@
    				$zeichen = '0123456789';
    				$zeichen .= 'abcdefghijklmnopqrstuvwxyz';
    				$zeichen .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-   				$zeichen .= '+#-$%';
+   				$zeichen .= '+#-$%?';
 			//String wird generiert
 				$str = '';
 	   			$anz = strlen($zeichen);
