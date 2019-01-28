@@ -318,8 +318,8 @@
 			</label>
 		</div>
     	<div class="field">
-			<label for="pwlength" title="zwischen 6 und 16 Zeichen, Standardwert ist 8">Passwortlänge<sup>*</sup>:
-				<input id="pwlength" name="pwlength" type="number" min="6" max="16" value="<?php echo $pwlength; ?>">
+			<label for="pwlength" title="zwischen 6 und 32 Zeichen, Standardwert ist 8">Passwortlänge<sup>*</sup>:
+				<input id="pwlength" name="pwlength" type="number" min="6" max="32" value="<?php echo $pwlength; ?>">
 			</label>
 		</div>
 		<button class="accordion small" type="button">Erweitert</button>
@@ -362,7 +362,7 @@
    				$zeichen = '0123456789';
    				$zeichen .= 'abcdefghijklmnopqrstuvwxyz';
    				$zeichen .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-   				$zeichen .= '+#-$%?';
+   				$zeichen .= '+#-$%?&_';
 			//String wird generiert
 				$str = '';
 	   			$anz = strlen($zeichen);
