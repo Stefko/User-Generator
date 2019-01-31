@@ -372,16 +372,15 @@
 	   			return $str;
 			}
 		
-			//echo zufallsstring(6); //G3pgIA
-			for($i=1; $i<=$usercount; $i++){ // Anzahl der generierten User -> 200			
+			for($i=1; $i<=$usercount; $i++){ // Anzahl der zu generierenden User			
 				// Mit führenden Nullen ausgeben: http://www.tutorials.de/php/177127-ganzzahlen-mit-fuehrende-nullen-ausgeben.html
 				//echo zufallsstring(8) ."<br>\n";
 				echo "<tr>"
 						."<td class=\"user\">".$userprefix."_".sprintf ("%03d", $i+$counterstart)."</td>"								// Username
-						."<td class=\"psswd\">".zufallsstring($pwlength)."</td>"										// Passwortlänge festlegen
+						."<td class=\"psswd\">".zufallsstring($pwlength)."</td>"														// Passwortlänge festlegen
 						."<td class=\"email responsive\">".$userprefix."_".sprintf ("%03d", $i+$counterstart)."@example.com"."</td>"	// Email Adresse
-						."<td class=\"groups responsive\">$groups</td>"													// Gruppe
-						."<td class=\"login responsive\">$login</td>"													// Login erlauben (1)
+						."<td class=\"groups responsive\">$groups</td>"																	// Gruppe
+						."<td class=\"login responsive\">$login</td>"																	// Login erlauben (1)
 					."</tr>";
 			}
 		?>
